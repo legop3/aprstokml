@@ -29,6 +29,7 @@ var util=require('util');
 var ax25utils=require('utils-for-aprs').ax25utils;
 var SocketKISSFrameEndpoint=require('utils-for-aprs').SocketKISSFrameEndpoint;
 var APRSProcessor=require('utils-for-aprs').APRSProcessor;
+const fs = require('fs')
 
 console.log("process.argv=" + process.argv);
 
@@ -72,11 +73,57 @@ aprsProcessor.on('aprsData', function(frame) {
 
 
     console.log(frame)
-    console.log("\\\\\\\\\\\\\\")
-    console.log(frame.comment)
-    if(frame.position){console.log(frame.position.coords)}
-    console.log(frame.weather)
-    console.log("///////////////////////")
+    // console.log("\\\\\\\\\\\\\\")
+    // console.log(frame.comment)
+    // if(frame.position){console.log(frame.position.coords)}
+    // console.log(frame.weather)
+    // console.log("///////////////////////")
+    
+
+    if(frame.position){
+
+          const kmlout = `<?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://earth.google.com/kml/2.0">
+    <Placemark>
+    <name>
+      ${frame.comment}
+      ${frame.statusText}
+    </name>
+    <description>${frame.message}</description>
+    <LookAt>
+    <longitude>${frame.position.coords.longitude}</longitude>
+    <latitude>${frame.position.coords.latitude}</latitude>
+    <range>9000</range>
+    <tilt>45</tilt>
+    <heading>0</heading>
+    </LookAt>
+        <Point>
+            <coordinates>${frame.position.coords.longitude},${frame.position.coords.latitude},0</coordinates>
+        </Point>
+    </Placemark>
+  </kml>
+  `
+    console.log(kmlout)
+    fs.writeFile('out.kml', kmlout, {encoding:'utf8',flag:'w'}, err => {
+      if(err){console.log(err)}
+    
+    })
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
 aprsProcessor.on('error', function(err, frame) {

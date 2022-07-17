@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://earth.google.com/kml/2.0">
+    <Placemark>
+    <name>
+      440 MMDVM Voice 446.13750MHz +0.0000MHz, N8EI_Pi-Star_ND
+      undefined
+    </name>
+    <description>undefined</description>
+    <LookAt>
+    <longitude>-81.68416666666667</longitude>
+    <latitude>41.0575</latitude>
+    <range>9000</range>
+    <tilt>45</tilt>
+    <heading>0</heading>
+    </LookAt>
+        <Point>
+            <coordinates>-81.68416666666667,41.0575,0</coordinates>
+        </Point>
+    </Placemark>
+  </kml>
+  
