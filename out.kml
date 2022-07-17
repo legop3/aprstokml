@@ -3,18 +3,18 @@
     <Placemark>
     <name>
       undefined
-      undefined
+      iGate in Wintersville, OH, running UI-View32 V2.03
     </name>
     <description>undefined</description>
     <LookAt>
-    <longitude>-82.85183333333333</longitude>
-    <latitude>39.95033333333333</latitude>
+    <longitude>undefined</longitude>
+    <latitude>undefined</latitude>
     <range>9000</range>
     <tilt>45</tilt>
     <heading>0</heading>
     </LookAt>
         <Point>
-            <coordinates>-82.85183333333333,39.95033333333333,0</coordinates>
+            <coordinates>undefined,undefined,0</coordinates>
         </Point>
     </Placemark>
   </kml>
