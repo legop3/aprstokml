@@ -59,15 +59,25 @@ var aprsProcessor=new APRSProcessor();
 aprsProcessor.on('aprsData', function(frame) {
   frame.receivedAt=new Date();
 
-  console.log( "[" + frame.receivedAt + "]" + ax25utils.addressToString(frame.source) +
-    '->' + ax25utils.addressToString(frame.destination) +
-    ' (' + ax25utils.repeaterPathToString(frame.repeaterPath) + ')' +
-    ((frame.forwardingSource!=undefined)?(
-      " via " + ax25utils.addressToString(frame.forwardingSource) +
-      '->' + ax25utils.addressToString(frame.forwardingDestination) +
-      ' (' + ax25utils.repeaterPathToString(frame.forwardingRepeaterPath) + ')')
-      : '') +
-    frame.info);
+  // console.log( "[" + frame.receivedAt + "]" + ax25utils.addressToString(frame.source) +
+  //   '->' + ax25utils.addressToString(frame.destination) +
+  //   ' (' + ax25utils.repeaterPathToString(frame.repeaterPath) + ')' +
+  //   ((frame.forwardingSource!=undefined)?(
+  //     " via " + ax25utils.addressToString(frame.forwardingSource) +
+  //     '->' + ax25utils.addressToString(frame.forwardingDestination) +
+  //     ' (' + ax25utils.repeaterPathToString(frame.forwardingRepeaterPath) + ')')
+  //     : '') +
+  //   frame.info);
+
+
+
+    console.log(frame)
+    console.log("\\\\\\\\\\\\\\")
+    console.log(frame.comment)
+    if(frame.position){console.log(frame.position.coords)}
+    console.log(frame.weather)
+    console.log("///////////////////////")
+
 });
 aprsProcessor.on('error', function(err, frame) {
   console.log("Got error event:" + err);
@@ -88,6 +98,9 @@ endpoint.on('connect', function(connection) {
   });
 });
 
+process.on('uncaughtException', (err, origin) => {
+  console.log(err);
+});
 
 
 // Turn on the endpoint.  It will attempt to connect in a persistent fashion.
