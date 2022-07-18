@@ -2,19 +2,19 @@
     <kml xmlns="http://earth.google.com/kml/2.0">
     <Placemark>
     <name>
-      RNG0001 440 Voice 433.30000MHz +0.0000MHz
+      000/000g000t069r   p   P001h93b10122KU2k
       undefined
     </name>
     <description>undefined</description>
     <LookAt>
-    <longitude>-81.503</longitude>
-    <latitude>41.0365</latitude>
+    <longitude>-84.3045</longitude>
+    <latitude>39.46216666666667</latitude>
     <range>9000</range>
     <tilt>45</tilt>
     <heading>0</heading>
     </LookAt>
         <Point>
-            <coordinates>-81.503,41.0365,0</coordinates>
+            <coordinates>-84.3045,39.46216666666667,0</coordinates>
         </Point>
     </Placemark>
   </kml>

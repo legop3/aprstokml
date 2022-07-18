@@ -31,6 +31,11 @@ var SocketKISSFrameEndpoint=require('utils-for-aprs').SocketKISSFrameEndpoint;
 var APRSProcessor=require('utils-for-aprs').APRSProcessor;
 const fs = require('fs')
 
+const { token } = require('./config.json')
+const Discord = require('discord.js')
+const client = new Discord.Client()
+
+
 console.log("process.argv=" + process.argv);
 
 if (process.argv.length != 3) {
@@ -77,7 +82,7 @@ aprsProcessor.on('aprsData', function(frame) {
     // console.log(frame.comment)
     // if(frame.position){console.log(frame.position.coords)}
     // console.log(frame.weather)
-    // console.log("///////////////////////")
+    console.log("///////////////////////")
     
 
     if(frame.position){
@@ -104,14 +109,17 @@ aprsProcessor.on('aprsData', function(frame) {
   </kml>
   `
 
-  if(frame.weather) {
-    console.log(frame.weather)
-  }
-    console.log(kmlout)
+
+    // console.log(kmlout)
     fs.writeFile('out.kml', kmlout, {encoding:'utf8',flag:'w'}, err => {
       if(err){console.log(err)}
     
     })
+
+
+
+
+
 
 
 
@@ -120,17 +128,49 @@ aprsProcessor.on('aprsData', function(frame) {
 
 
 
+    // if(frame.weather) {
+    //   console.log(frame.weather)
+    // }
+
+//////////////////////////////////////////////////////discord stuff here////////////
+const embed = new Discord.MessageEmbed()
+    .setTitle(frame.comment)
+    .addFields(
+      { name: 'DataType', value: frame.dataType },
+      { name: 'Destination', value: frame.destination.callsign },
+      { name: 'Source', value: frame.source.callsign },
+      { name: 'Message(?)', value: `${frame.message} ${frame.micEmessage}` }
+    )
+    .setFooter(frame.info)
+    // .setAuthor(frame.forwardingSource.callsign)
+
+    // console.log(embed)
+    client.channels.cache.get("998335245977931826").send(embed)
+    
+
+    if(frame.weather){
+    const weatherembed = new Discord.MessageEmbed()
+      .setColor('#0099ff')
+      .setTitle(`WEATHER REPORT, ${frame.comment}`)
+      .addFields(
+        { name: "Wind Direction", value: frame.weather.windDirection },
+        { name: "Wind Speed", value: frame.weather.windSpeed },
+        { name: "Gust", value: frame.weather.gust },
+        { name: "Tempurature", value: frame.weather.tempurature },
+        { name: "Rain in last hour", value: frame.weather.rainLastHour },
+        { name: "Rain in last 24 hours", value: frame.weather.rainLast24Hour },
+        { name: "Rain since midnight", value: frame.weather.rainSinceMidnight },
+        { name: "Humidity", value: frame.weather.humidity }
+      )
+
+      client.channels.cache.get("998335245977931826").send(weatherembed)
+      client.channels.cache.get("998335245977931826").send("<@383320447514574848>")
+    }
 
 
 
 
-
-
-
-
-
-
-
+///////////////////////////////////////////discord stuff ends///////////////////////////////////
 });
 aprsProcessor.on('error', function(err, frame) {
   console.log("Got error event:" + err);
@@ -158,3 +198,5 @@ process.on('uncaughtException', (err, origin) => {
 
 // Turn on the endpoint.  It will attempt to connect in a persistent fashion.
 endpoint.enable();
+
+client.login(token)
