@@ -2,19 +2,19 @@
     <kml xmlns="http://earth.google.com/kml/2.0">
     <Placemark>
     <name>
+      RNG0001 440 Voice 433.30000MHz +0.0000MHz
       undefined
-      iGate in Wintersville, OH, running UI-View32 V2.03
     </name>
     <description>undefined</description>
     <LookAt>
-    <longitude>undefined</longitude>
-    <latitude>undefined</latitude>
+    <longitude>-81.503</longitude>
+    <latitude>41.0365</latitude>
     <range>9000</range>
     <tilt>45</tilt>
     <heading>0</heading>
     </LookAt>
         <Point>
-            <coordinates>undefined,undefined,0</coordinates>
+            <coordinates>-81.503,41.0365,0</coordinates>
         </Point>
     </Placemark>
   </kml>
