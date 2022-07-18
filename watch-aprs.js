@@ -160,11 +160,12 @@ const embed = new Discord.MessageEmbed()
         { name: "Rain in last hour", value: frame.weather.rainLastHour },
         { name: "Rain in last 24 hours", value: frame.weather.rainLast24Hour },
         { name: "Rain since midnight", value: frame.weather.rainSinceMidnight },
-        { name: "Humidity", value: frame.weather.humidity }
+        { name: "Humidity", value: frame.weather.humidity },
+        { name: "Barometer", value: frame.weather.barometer }
       )
 
-      client.channels.cache.get("998335245977931826").send(weatherembed)
-      client.channels.cache.get("998335245977931826").send("<@383320447514574848>")
+      client.channels.cache.get("998665311538651196").send(weatherembed)
+      client.channels.cache.get("998665311538651196").send("<@383320447514574848>")
     }
 
 
