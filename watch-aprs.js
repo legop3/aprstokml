@@ -103,6 +103,10 @@ aprsProcessor.on('aprsData', function(frame) {
     </Placemark>
   </kml>
   `
+
+  if(frame.weather) {
+    console.log(frame.weather)
+  }
     console.log(kmlout)
     fs.writeFile('out.kml', kmlout, {encoding:'utf8',flag:'w'}, err => {
       if(err){console.log(err)}
@@ -113,7 +117,7 @@ aprsProcessor.on('aprsData', function(frame) {
 
     }
 
-    
+
 
 
 
