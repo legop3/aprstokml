@@ -156,7 +156,7 @@ const embed = new Discord.MessageEmbed()
         { name: "Wind Direction", value: frame.weather.windDirection },
         { name: "Wind Speed", value: frame.weather.windSpeed },
         { name: "Gust", value: frame.weather.gust },
-        { name: "Tempurature", value: frame.weather.tempurature },
+        { name: "Tempurature", value: frame.weather.temperature },
         { name: "Rain in last hour", value: frame.weather.rainLastHour },
         { name: "Rain in last 24 hours", value: frame.weather.rainLast24Hour },
         { name: "Rain since midnight", value: frame.weather.rainSinceMidnight },
