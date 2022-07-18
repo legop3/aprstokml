@@ -2,19 +2,20 @@
     <kml xmlns="http://earth.google.com/kml/2.0">
     <Placemark>
     <name>
-      000/000g000t069r   p   P001h93b10122KU2k
       undefined
+      undefined
+      Off Duty
     </name>
     <description>undefined</description>
     <LookAt>
-    <longitude>-84.3045</longitude>
-    <latitude>39.46216666666667</latitude>
+    <longitude>-82.3375</longitude>
+    <latitude>40.45483333333333</latitude>
     <range>9000</range>
     <tilt>45</tilt>
     <heading>0</heading>
     </LookAt>
         <Point>
-            <coordinates>-84.3045,39.46216666666667,0</coordinates>
+            <coordinates>-82.3375,40.45483333333333,0</coordinates>
         </Point>
     </Placemark>
   </kml>
