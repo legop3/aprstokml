@@ -93,6 +93,7 @@ aprsProcessor.on('aprsData', function(frame) {
     <name>
       ${frame.comment}
       ${frame.statusText}
+      ${frame.micEMessage}
     </name>
     <description>${frame.message}</description>
     <LookAt>
@@ -139,14 +140,14 @@ const embed = new Discord.MessageEmbed()
       { name: 'DataType', value: frame.dataType },
       { name: 'Destination', value: frame.destination.callsign },
       { name: 'Source', value: frame.source.callsign },
-      { name: 'Message(?)', value: `${frame.message} ${frame.micEmessage}` }
+      { name: 'Message(?)', value: `${frame.message} ${frame.micEMessage}` }
     )
     .setFooter(frame.info)
     // .setAuthor(frame.forwardingSource.callsign)
 
     // console.log(embed)
     client.channels.cache.get("998335245977931826").send(embed)
-    
+    console.log('sending info...')
 
     if(frame.weather){
     const weatherembed = new Discord.MessageEmbed()
@@ -166,6 +167,7 @@ const embed = new Discord.MessageEmbed()
 
       client.channels.cache.get("998665311538651196").send(weatherembed)
       client.channels.cache.get("998665311538651196").send("<@383320447514574848>")
+      console.log('sending weather...')
     }
 
 
