@@ -1,3 +1,6 @@
+# Modifications:
+This script will now write point data to a KML file each time there is a new point recieved.
+
 # watch-aprs
 
 Monitor and decode APRS packets arriving on a KISS-over-TCP device.
