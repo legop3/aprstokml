@@ -3,19 +3,19 @@
     <Placemark>
     <name>
       undefined
+       K8LGN Logan Ohio HVARC
       undefined
-      Off Duty
     </name>
     <description>undefined</description>
     <LookAt>
-    <longitude>-82.3375</longitude>
-    <latitude>40.45483333333333</latitude>
+    <longitude>undefined</longitude>
+    <latitude>undefined</latitude>
     <range>9000</range>
     <tilt>45</tilt>
     <heading>0</heading>
     </LookAt>
         <Point>
-            <coordinates>-82.3375,40.45483333333333,0</coordinates>
+            <coordinates>undefined,undefined,0</coordinates>
         </Point>
     </Placemark>
   </kml>

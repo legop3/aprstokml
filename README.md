@@ -19,24 +19,20 @@ report if you experience difficulties.
 
 # Installation
 
-If you need to use 'sudo' to install globally, use
-the following:
 
-    sudo npm install -g watch-aprs
+    npm install
 
-If you don't need 'sudo', then
 
-    npm install -g watch-aprs
 
 # Usage
 
 ## Command Line - Monitoring the On-Air APRS Traffic
 
-    watch-aprs <host>:<port>
+    node watch-aprs.js <host>:<port>
 
     e.g.
 
-    watch-aprs raspberrypi:8001
+    node watch-aprs.js raspberrypi:8001
 
 'watch-aprs' isn't specific to the 'share-tnc' package.  It will work with any
 KISS-over-TCP server (e.g. DireWolf).

@@ -31,6 +31,8 @@ var SocketKISSFrameEndpoint=require('utils-for-aprs').SocketKISSFrameEndpoint;
 var APRSProcessor=require('utils-for-aprs').APRSProcessor;
 const fs = require('fs')
 
+
+
 const { token } = require('./config.json')
 const Discord = require('discord.js')
 const client = new Discord.Client()
@@ -74,6 +76,10 @@ aprsProcessor.on('aprsData', function(frame) {
   //     ' (' + ax25utils.repeaterPathToString(frame.forwardingRepeaterPath) + ')')
   //     : '') +
   //   frame.info);
+
+
+
+
 
 
 
