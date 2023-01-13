@@ -42,7 +42,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 
 
-var serve=serveStatic('./')
+var serve=serveStatic('./output')
 var server = http.createServer(function(req, res) {
   var done = finalhandler(req, res)
   serve(req, res, done)
@@ -130,7 +130,7 @@ aprsProcessor.on('aprsData', function(frame) {
 
 
     // console.log(kmlout)
-    fs.writeFile('out.kml', kmlout, {encoding:'utf8',flag:'w'}, err => {
+    fs.writeFile('./output/out.kml', kmlout, {encoding:'utf8',flag:'w'}, err => {
       if(err){console.log(err)}
     
     })
