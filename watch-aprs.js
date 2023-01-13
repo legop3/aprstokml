@@ -42,7 +42,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 
 
-var serve=serveStatic('./out.kml')
+var serve=serveStatic('./')
 var server = http.createServer(function(req, res) {
   var done = finalhandler(req, res)
   serve(req, res, done)
