@@ -29,13 +29,25 @@ var util=require('util');
 var ax25utils=require('utils-for-aprs').ax25utils;
 var SocketKISSFrameEndpoint=require('utils-for-aprs').SocketKISSFrameEndpoint;
 var APRSProcessor=require('utils-for-aprs').APRSProcessor;
+var http=require('http')
+var finalhandler=require('finalhandler')
+var serveStatic=require('serve-static')
 const fs = require('fs')
+
 
 const doDiscord = true
 
 const { token } = require('./config.json')
 const Discord = require('discord.js')
 const client = new Discord.Client()
+
+
+var serve=serveStatic('./out.kml')
+var server = http.createServer(function(req, res) {
+  var done = finalhandler(req, res)
+  serve(req, res, done)
+})
+server.listen(8913)
 
 
 console.log("process.argv=" + process.argv);
