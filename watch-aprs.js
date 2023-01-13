@@ -31,7 +31,7 @@ var SocketKISSFrameEndpoint=require('utils-for-aprs').SocketKISSFrameEndpoint;
 var APRSProcessor=require('utils-for-aprs').APRSProcessor;
 const fs = require('fs')
 
-
+const doDiscord = true
 
 const { token } = require('./config.json')
 const Discord = require('discord.js')
@@ -140,7 +140,9 @@ aprsProcessor.on('aprsData', function(frame) {
     // }
 
 //////////////////////////////////////////////////////discord stuff here////////////
-const embed = new Discord.MessageEmbed()
+
+if(doDiscord == true) {
+  const embed = new Discord.MessageEmbed()
     .setTitle(frame.comment)
     .addFields(
       { name: 'DataType', value: frame.dataType },
@@ -175,6 +177,8 @@ const embed = new Discord.MessageEmbed()
       client.channels.cache.get("998665311538651196").send("<@383320447514574848>")
       console.log('sending weather...')
     }
+}
+
 
 
 
