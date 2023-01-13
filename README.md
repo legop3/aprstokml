@@ -1,5 +1,8 @@
 # Modifications:
-This script will now write point data to a KML file each time there is a new point recieved.
+This script will now write point data to a KML file each time there is a new point recieved. This KML file is meant to be put in google earth so that it updates in real time with the latest point from APRS.
+
+
+I previously have done this same thing in a much worse way, using old, outdated, closed-source software that only ran on windows. This is my new way of doing things. This software is designed to be used with GQRX and Direwolf, for RX of APRS packets using an RTL-SDR V3 dongle. Please let me know if you have any questions, just submit an issue in this repository and I will be happy to help you. 
 
 # watch-aprs
 
@@ -19,8 +22,17 @@ report if you experience difficulties.
 
 # Installation
 
+Install libasound2-dev if you are on Linux using your package manager, something similar to:
+
+    sudo apt install libasound2-dev
+
+Then, use NPM or a different node package manager to install the program's required modules:
 
     npm install
+    
+
+
+You must make a copy of config.json.example and rename it to config.json, then put in your discord bot token.
 
 
 
