@@ -38,6 +38,19 @@ You must make a copy of config.json.example and rename it to config.json, then p
 
 # Usage
 
+## Setting up GQRX and Direwolf
+
+- Install GQRX and Direwolf on your computer.
+- Start GQRX and tune in to your local APRS frequency.
+- Press the "UDP" button in the Audio section of GQRX
+- Start Direwolf with the command:
+  
+        direwolf -r 48000 udp:7355
+- start the script with the command:
+
+        node ./watch-aprs.js localhost:8001
+
+
 ## Command Line - Monitoring the On-Air APRS Traffic
 
     node watch-aprs.js <host>:<port>
